@@ -30,4 +30,9 @@ export class RestaurantsService {
 
     return restaurant.save();
   }
+
+ async findAll(cuisine?: string) {
+  const filter = cuisine ? { cuisines: cuisine } : {};
+  return this.restaurantModel.find(filter).exec();
+}
 }
