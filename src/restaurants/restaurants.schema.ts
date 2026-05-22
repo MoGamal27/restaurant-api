@@ -32,7 +32,7 @@ export class Restaurant {
     cuisines!: string[];
 
     @Prop({
-        type: { type: String, enum: ['Point'], required: true },
+        type: { type: String, enum: ['Point'],  default: 'Point'},
         coordinates: { type: [Number], required: true }  
     })
     location!: {
