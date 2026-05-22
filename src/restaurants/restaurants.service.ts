@@ -46,4 +46,18 @@ async findOne(idOrSlug: string) {
 
   return this.restaurantModel.findOne(filter).exec();
 }
+
+async findNearby(lng: number, lat: number) {
+  return this.restaurantModel.find({
+    location: {
+      $near: {
+        $geometry: {
+          type: 'Point',
+          coordinates: [lng, lat],
+        },
+        $maxDistance: 1000,
+      },
+    },
+  }).exec();
+}
 }

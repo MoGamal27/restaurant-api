@@ -20,4 +20,15 @@ export class RestaurantsController {
 findOne(@Param('idOrSlug') idOrSlug: string) {
   return this.restaurantsService.findOne(idOrSlug);
 }
+
+@Get('nearby')
+findNearby(
+  @Query('lng') lng: string,
+  @Query('lat') lat: string,
+) {
+  return this.restaurantsService.findNearby(
+    parseFloat(lng),
+    parseFloat(lat),
+  );
+}
 }
