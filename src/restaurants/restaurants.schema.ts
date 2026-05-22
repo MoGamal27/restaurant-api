@@ -17,10 +17,8 @@ export class Restaurant {
     })
     nameAr!: string;
 
-    @Prop({
-        type: String,
-        required: true,
-        unique: [true, 'Slug must be unique']
+    @Prop({ 
+     unique: [true, 'Slug must be unique']
     })
     slug!: string;
    

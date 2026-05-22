@@ -11,10 +11,6 @@ export class CreateRestaurantDto {
     @IsNotEmpty({ message: 'Name is required' })
     nameAr!: string;
 
-    @IsString({ message: 'Slug must be a string' })
-    @IsNotEmpty({ message: 'Slug is required' })
-    slug!: string;
-
     @IsArray({ message: 'Cuisines must be an array' })
     @ArrayMinSize(1, { message: 'At least one cuisine is required' })
     @ArrayMaxSize(3, { message: 'No more than 3 cuisines are allowed' })
