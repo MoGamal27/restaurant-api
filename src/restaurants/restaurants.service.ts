@@ -35,4 +35,15 @@ export class RestaurantsService {
   const filter = cuisine ? { cuisines: cuisine } : {};
   return this.restaurantModel.find(filter).exec();
 }
+
+
+async findOne(idOrSlug: string) {
+  const isObjectId = Types.ObjectId.isValid(idOrSlug);
+
+  const filter = isObjectId
+    ? { _id: idOrSlug }
+    : { slug: idOrSlug };
+
+  return this.restaurantModel.findOne(filter).exec();
+}
 }

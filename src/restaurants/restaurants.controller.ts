@@ -15,4 +15,9 @@ export class RestaurantsController {
  findAll(@Query('cuisine') cuisine?: string) {
   return this.restaurantsService.findAll(cuisine);
 }
+
+@Get(':idOrSlug')
+findOne(@Param('idOrSlug') idOrSlug: string) {
+  return this.restaurantsService.findOne(idOrSlug);
+}
 }
