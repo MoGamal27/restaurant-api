@@ -23,7 +23,7 @@ export class RestaurantsService {
       slug,                  
       cuisines:   dto.cuisines,
       location: {
-        type: dto.location.type || 'Point',
+        type: "Point",
         coordinates: dto.location.coordinates,
       },
     });
