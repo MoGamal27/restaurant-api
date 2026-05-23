@@ -15,6 +15,11 @@ export class UsersService {
     private userModel: Model<UserDocument>,
   ) {}
 
+  async create(dto: CreateUserDto): Promise<UserDocument> {
+    const user = new this.userModel(dto);
+    return user.save();
+  }
+
    async getRecommendations(userId: string) {
   const result = await this.userModel.aggregate([
 
